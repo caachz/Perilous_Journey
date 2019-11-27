@@ -125,8 +125,8 @@ class LinkedListTest < Minitest::Test
     family_mckinney = list.prepend("McKinney")
     family_lawson = list.insert(1, "Lawson")
 
-    assert_equal 'The Henderson family has died of dysentery', list.pop
-    assert_equal 'The Brooks family has died of dysentery', list.pop
+    assert_instance_of Node, list.pop
+    assert_instance_of Node, list.pop
     assert_equal "The McKinney family, followed by the Lawson family", list.to_string
   end
 end

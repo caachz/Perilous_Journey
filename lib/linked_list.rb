@@ -16,19 +16,19 @@ class LinkedList
     end
   end
 
-  def prepend(surname)
-    if @head.next_node != nil
-      new_head = Node.new(surname)
+  def prepend(surname, supplies = {})
+    if @head != nil
+      new_head = Node.new(surname, supplies)
       new_head.next_node = @head
       @head = new_head
     end
   end
 
-  def insert(position, surname)
+  def insert(position, surname, supplies = {})
     mover = @head
     output = @head
     count = 0
-    new_family = Node.new(surname)
+    new_family = Node.new(surname, supplies)
     until mover == nil
       if count == position
         new_family.next_node = mover
