@@ -2,11 +2,10 @@ require "./lib/linked_list"
 
 class WagonTrain
 
-  attr_reader :list, :supplies
+  attr_reader :list
 
   def initialize
     @list = LinkedList.new
-    @supplies = {}
   end
 
   def append(surname, supplies_purchased = {})
@@ -26,7 +25,7 @@ class WagonTrain
       total_supplies = total_supplies.merge(mover.supplies){|key, oldval, newval| newval + oldval}
       mover = mover.next_node
     end
-    @supplies = total_supplies
+    total_supplies
   end
 
   def go_hunting
@@ -45,8 +44,7 @@ class WagonTrain
     end
     total_food_from_game = {"pounds of food" => 0}
     total_food_from_game["pounds of food"] = (total_squirrels * 2) + (total_deer * 40) + (total_bison * 100)
-    @supplies = @supplies.merge(total_food_from_game) {|key, oldval, newval| newval + oldval}
-    "You got #{total_squirrels} #{how_say_squirrle}, #{total_deer} deer and #{total_bison} for #{total_food_from_game["pounds of food"]} pounds of food"
-    require "pry"; binding.pry
+    @list.head.supplies = list.head.supplies.merge(total_food_from_game) {|key, oldval, newval| newval + oldval}
+    "You got #{total_squirrels} #{how_say_squirrle}, #{total_deer} deer and #{total_bison} bison for #{total_food_from_game["pounds of food"]} pounds of food"
   end
 end
