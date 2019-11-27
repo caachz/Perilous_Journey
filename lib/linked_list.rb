@@ -103,44 +103,20 @@ class LinkedList
     status
   end
 
-  # def find_tail
-  #   require "pry"; binding.pry
-  #   node = @head
-  #   return node if !node.next
-  #   return node if !node.next while (node = node.next)
-  # end
-
   def pop
     mover = @head
-    output = @head
     counter = 0
-    require "pry"; binding.pry
+    family = nil
     until mover == nil
       if mover.next_node.next_node == nil
+        family = mover.next_node
         mover.next_node = nil
         break
       end
       counter += 1
       mover = mover.next_node
     end
-    if counter == 0
-      ouput.next_node = mover
-    elsif counter == 1
-      surname = output.next_node.next_node.surname
-      output.next_node.next_node = mover
-      print "The #{output.next_node.next_node.next_node.surname} family has died of dysentery"
-    elsif counter == 2
-      print "The #{output.next_node.next_node.next_node.surname} family has died of dysentery"
-      output.next_node.next_node.next_node = mover
-    elsif counter == 3
-      print "The #{output.next_node.next_node.next_node.next_node.surname} family has died of dysentery"
-      output.next_node.next_node.next_node.next_node = mover
-    elsif couner == 4
-      print "The #{output.next_node.next_node.next_node.next_node.next_node.surname} family has died of dysentery"
-      output.next_node.next_node.next_node.next_node.next_node = mover
-    elsif counter == 5
-      print "The #{output.next_node.next_node.next_node.next_node.next_node.next_node.surname} family has died of dysentery"
-      output.next_node.next_node.next_node.next_node.next_node.next_node = mover
-    end
+    puts string = "The #{family.surname} family has died of dysentery"
+    family
   end
 end
