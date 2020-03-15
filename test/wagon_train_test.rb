@@ -88,12 +88,4 @@ class WagonTrainTest < Minitest::Test
     assert_equal supplies, wt.supplies
   end
 
-  def test_wagontrain_can_go_hunting
-    wt = WagonTrain.new
-    wt.append("Burke", {"pounds of food" => 200})
-    # supplies = {"pounds of food" => 306}
-    wt.go_hunting
-     assert_equal "You got 3 squirrels, 0 deer and 1 bison for 106 pounds of food", wt.go_hunting
-    # assert_equal supplies, wt.supplies
-  end
 end
